@@ -5,23 +5,24 @@ const fruits = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Black
 
 function search(str) {
 	let results = [];
-    for (let i of fruits){
-        i.toLowerCase().includes(str.toLowerCase()) ? results.push(i) : null;
+    for (let fruit of fruits){
+        fruit.toLowerCase().includes(str.toLowerCase()) ? results.push(fruit) : null;
     }
 	showSuggestions(results);
 }
 
 function showSuggestions(results) {
     clearSuggestions();
+    let sugList = [];
     for (let result in results){
 
         const listFruit = document.createElement('li');
         listFruit.innerText = results[result];
         listFruit.style.listStyle = 'none';
         listFruit.setAttribute('id', results[result]);
-        
-        suggestions.append(listFruit);
+        sugList.push(listFruit);
     }
+    suggestions.append(...sugList.slice(0,6));
 }
 
 function clearSuggestions(){

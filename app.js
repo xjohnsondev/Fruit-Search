@@ -19,7 +19,6 @@ function showSuggestions(results) {
         const listFruit = document.createElement('li');
         listFruit.innerText = results[result];
         listFruit.style.listStyle = 'none';
-        listFruit.setAttribute('id', results[result]);
         sugList.push(listFruit);
     }
     suggestions.append(...sugList.slice(0,6));
